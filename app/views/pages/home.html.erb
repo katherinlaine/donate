@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<HTML>
+  <HEAD>
+    <TITLE>Food Donation Locator</TITLE>
+    <LINK href="index.css" rel="stylesheet" type="text/css">
+  </HEAD>
+  <body>
+    <h1>Welcome to DONATR.</h1>
+    <p>Thanks for visiting! DONATR exists to connect your surplus food with your
+    hungry neighbors. </p>
+    <div class="donate">
+      <h3>Donate your surplus food now! If you have more than 100
+        pounds to donate, please visit <a
+          href="http://cityharvest.org/donate-food">City Harvest's site for food
+          donors</a>. They
+        may be able to pick up your food for you!</h3>
+      <h3>If you have less than 100 pounds of food to donate and/or need to
+        donate your food immediately, we'd love to connect you to a nearby
+        location that accepts drop-off donations.</h3>
+      <h3>Based on the type of food you have, the amount, and your current
+        location, we can show you where the closest drop-off location is.</h3>
+      <h4>Before acting, please review <a
+          href="http://www.cityharvest.org/donate-food/donation-guidelines">City Harvest's Food Safety
+          Guidelines</a>. While every donation is appreciated, the health of the
+        people we serve is our primary concern.</h4>
+      <div class="search">
+        <h4>Search by your best estimate of the food type, pounds, your location,
+        and when you would like to drop off the food:</h4>
+        <p>TYPE(dropdown)</p>
+        <p>LBS(dropdown or radio)</p>
+        <p>Zip Code</p>
+        <p>Day/Time (m-f dropdown, time of day dropdown)</p>
+        <p>Please enter your email address below.  This will allow us to send a
+        one-time only follow-up email regarding the success of your donation
+        which will enable us to provide you with an acknowledgement letter for
+        your donation.</p>
+          <p>email address</p>
+          <p><%= link_to "Submit", page_path('search_results')%></p>
+
+      </div>
+    <div class="ch_info">
+      <h3>Founded in 1982 as the world&#8217;s first food rescue organization, City
+      Harvest is dedicated to helping feed the more than 1.4 million New Yorkers
+  facing hunger. City Harvest will collect 50 million pounds of excess food from
+restaurants, grocers, bakeries, manufacturers, and farms, and deliver it free of
+charge to more than 500 community food programs across the city this year.</h3>
+      <h3>Interested in knowing more about City Harvest?</h3>
+      <h4>Visit their website here: <a href="http://cityharvest.org">City Harvest</a></h4>
+    </div>
+    <div class="agency_log">
+      <h3>Community Partner Log-in:</h3>
+      <p>EMAIL</p>
+      <p>PASSWORD</p>
+      <p><%= link_to 'Submit', page_path('agency_home')%></p>
+    </div>
+    <div class="admin_log">
+      <h3>Administrator Log-in:</h3>
+      <p>EMAIL</p>
+      <p>PASSWORD</p>
+      <p><%= link_to 'Submit', page_path('administrator_home')%></p>
+    </div>
+  </body>
+</HTML>
