@@ -14,5 +14,5 @@ Rails.application.routes.draw do
   end
 
   resources :agencies
-  resources :food_types, only: [:create, :update, :destroy, :index]
+  resources :food_types, only: [:create, :destroy, :index]
 end

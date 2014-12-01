@@ -1,18 +1,19 @@
 class FoodTypesController < ApplicationController
   def create
-    @food_type = FoodType.new(food_type_params)
-    @food_type.name.capitalize!
+    @food_type = FoodType.create(food_type_params)
 
-    if @food_type.save
-      redirect_to root_path
-    else
-      redirect_to root_path
-    end
+    redirect_to food_types_path
   end
 
   def index
-    @food_types = FoodType.all
     @food_type = FoodType.new
+  end
+
+  def destroy
+    @food_type = FoodType.find(params[:id])
+    @food_type.destroy
+
+    redirect_to food_types_path
   end
 
   private

@@ -1,12 +1,10 @@
 class AgenciesController < ApplicationController
   def new
     @agency = Agency.new
-    @food_types = FoodType.all
   end
 
   def create
     agency = Agency.new(agency_params)
-    agency.food_type_ids = agency_params[:food_type_ids]
 
     if agency.save
       redirect_to agency_path(agency)
@@ -21,17 +19,15 @@ class AgenciesController < ApplicationController
 
   def edit
     @agency = Agency.find(params[:id])
-    @food_types = FoodType.all
   end
 
   def update
     agency = Agency.find(params[:id])
-    agency.food_type_ids = agency_params[:food_type_ids]
 
     if agency.update(agency_params)
       redirect_to agency_path(agency)
     else
-      render :else
+      render :edit
     end
   end
 
@@ -43,14 +39,14 @@ class AgenciesController < ApplicationController
 
   def agency_params
     params.require(:agency).permit(
-      :name,
-      :contact,
-      :phone,
       :address,
       :city,
-      :zipcode,
+      :contact,
+      :name,
       :notes,
-      :food_type_ids => []
+      :phone,
+      :zipcode,
+      food_type_ids: []
     )
   end
 end

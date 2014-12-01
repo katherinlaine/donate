@@ -1,12 +1,13 @@
 <h1><%= @agency.name %></h1>
 
-<div>Contact: <%= @agency.contact %></div>
-<div>Phone: <%= @agency.phone %></div>
-<div>Address: <%= @agency.address %></div>
-<div>City: <%= @agency.city %></div>
-<div>State: NY </div>
-<div>Zip: <%= @agency.zipcode %></div>
-<div>Accepted Foods:
+<div>
+  <p>Contact: <%= @agency.contact %>
+  <p>Phone: <%= @agency.phone %>
+  <p>Address: <%= @agency.address %>
+  <p>City: <%= @agency.city %>
+  <p>State: NY
+  <p>Zip: <%= @agency.zipcode %>
+  <p>Accepted Foods:</p>
   <ol>
   <% @agency.food_type_ids.each do |food_type_id| %>
     <li><%= FoodType.find(food_type_id).name %></li>
@@ -14,18 +15,7 @@
   </ol>
 </div>
 
-<div>Notes: <%= @agency.notes %></div>
-
-<div>MAPMAPMAP</div>
+<p>Notes: <%= @agency.notes %></p>
 
 <%= link_to "Edit Details", edit_agency_path(@agency) %>
 <%= link_to "All Agencies", agencies_path %>
-
-
-
-
-
-
-
-
-
