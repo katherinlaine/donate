@@ -1,5 +1,5 @@
-class Agency < ActiveRecord::Base
-  has_many :food_types, through: :accepted_foods
+class FoodType < ActiveRecord::Base
+  has_many :agencies, through: :accepted_foods
   has_many :accepted_foods
 
   def self.alphabetize

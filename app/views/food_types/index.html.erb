@@ -1,0 +1,15 @@
+<h3> Food Types </h3>
+  <ul>
+    <% @food_types.alphabetize.each do |ft| %>
+      <li><%= ft.name %></li>
+    <% end %>
+  </ul>
+  <div>
+    <h6> Add a new type of food: </h6>
+    <%= form_for @food_type do |f| %>
+      <%= f.text_field :name %>
+
+      <%= f.submit %>
+  <% end %>
+  </div>
+
