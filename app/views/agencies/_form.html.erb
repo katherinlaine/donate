@@ -1,0 +1,35 @@
+<%= form_for @agency do |f| %>
+  <%= render partial: "application/error_messages", locals: { object: @agency } %>
+
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <%= f.label :contact %>
+  <%= f.text_field :contact %>
+
+  <%= f.label :phone %>
+  <%= f.telephone_field :phone %>
+
+  <%= f.label :address %>
+  <%= f.text_field :address %>
+
+  <%= f.label :city %>
+  <%= f.select :city, options_for_select([
+    'Bronx',
+    'Brooklyn',
+    'Manhattan',
+    'Queens',
+    'Staten Island'
+  ]) %>
+
+  <%= f.label :zipcode %>
+  <%= f.text_field :zipcode %>
+
+  <%= f.label :food_type_ids %>
+  <%= collection_check_boxes :agency, :food_type_ids, FoodType.all, :id, :name %>
+
+  <%= f.label :notes %>
+  <%= f.text_area :notes %>
+
+  <%= f.submit %>
+<% end %>

@@ -1,0 +1,9 @@
+<h3> Food Types </h3>
+<%= render FoodType.all.alphabetize %>
+
+<h6> Add a new type of food: </h6>
+
+<%= form_for @food_type do |f| %>
+  <%= f.text_field :name %>
+  <%= f.submit %>
+<% end %>

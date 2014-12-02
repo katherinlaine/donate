@@ -13,5 +13,6 @@ Rails.application.routes.draw do
     root "sessions#new"
   end
 
-  resources :agencies, only: [:new, :create, :show]
+  resources :agencies
+  resources :food_types, only: [:create, :destroy, :index]
 end
