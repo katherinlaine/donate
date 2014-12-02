@@ -4,10 +4,9 @@ class AgenciesController < ApplicationController
   end
 
   def create
-    agency = Agency.new(agency_params)
-
-    if agency.save
-      redirect_to agency_path(agency)
+    @agency = Agency.new(agency_params)
+    if @agency.save
+      redirect_to agency_path(@agency)
     else
       render :new
     end
@@ -22,10 +21,10 @@ class AgenciesController < ApplicationController
   end
 
   def update
-    agency = Agency.find(params[:id])
+    @agency = Agency.find(params[:id])
 
-    if agency.update(agency_params)
-      redirect_to agency_path(agency)
+    if @agency.update(agency_params)
+      redirect_to agency_path(@agency)
     else
       render :edit
     end

@@ -9,13 +9,13 @@
   <p>Zip: <%= @agency.zipcode %>
   <p>Accepted Foods:</p>
   <ol>
-  <% @agency.food_type_ids.each do |food_type_id| %>
-    <li><%= FoodType.find(food_type_id).name %></li>
-  <% end %>
+    <% @agency.food_types.each do |food_type| %>
+      <li><%= food_type.name %></li>
+    <% end %>
   </ol>
-</div>
 
-<p>Notes: <%= @agency.notes %></p>
+  <p>Notes: <%= @agency.notes %></p>
+</div>
 
 <%= link_to "Edit Details", edit_agency_path(@agency) %>
 <%= link_to "All Agencies", agencies_path %>
