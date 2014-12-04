@@ -1,4 +1,6 @@
 class Agency < ActiveRecord::Base
+  SEARCH = "name ILIKE :query OR zipcode ILIKE :query"
+
   has_many :accepted_foods
   has_many :food_types, through: :accepted_foods
 
@@ -10,5 +12,13 @@ class Agency < ActiveRecord::Base
 
   def self.alphabetize
     order(name: :asc)
+  end
+
+  def self.search(query)
+    where(SEARCH, query: "%#{query}%")
+  end
+
+  def full_address
+    "#{address}, #{city}, NY, #{zipcode}"
   end
 end
