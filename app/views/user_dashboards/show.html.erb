@@ -1,0 +1,26 @@
+<h1>Welcome to the donating app </h1>
+
+<%= link_to "All Agencies", agencies_path %>
+
+<h3> Have a food donation? </h3>
+
+<h5> Quick Search: </h5>
+
+<%= form_tag search_path, method: :get do %>
+  <%= text_field_tag :query, nil, placeholder: "Enter a name or zipcode" %>
+  <%= submit_tag "Search" %>
+<% end %>
+
+<h5>Advanced Search</h5>
+
+<%= form_tag filter_path, method: :get do %>
+  <%= select_tag :food_types, options_from_collection_for_select(
+    FoodType.all,
+    "id",
+    "name"
+  ), prompt: "Type of Food" %>
+
+  <%= select_tag :city, options_for_select(nyc_boroughs), prompt: "Borough" %>
+
+  <%= submit_tag "Search" %>
+<% end %>
