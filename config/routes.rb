@@ -15,10 +15,11 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resource :dashboard, only: [:show]
+    resources :food_types, only: [:create, :destroy, :index]
+    resources :agencies, except: [:show, :index]
   end
 
   resource :search, only: [:show]
   resource :filter, only: [:show]
-  resources :agencies
-  resources :food_types, only: [:create, :destroy, :index]
+  resources :agencies, only: [:index, :show]
 end
