@@ -26,6 +26,10 @@ class Admin::AgenciesController < AdminController
     end
   end
 
+  def show
+    @agency = Agency.find(params[:id])
+  end
+
   private
 
   def agency_params
