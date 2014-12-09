@@ -17,5 +17,8 @@
   <p>Notes: <%= @agency.notes %></p>
 </div>
 
-<%= link_to "Edit Details", edit_agency_path(@agency) %>
+<% if current_user.super_admin? %>
+  <%= link_to "Edit Details", edit_admin_agency_path(@agency) %>
+<% end %>
+
 <%= link_to "All Agencies", agencies_path %>
