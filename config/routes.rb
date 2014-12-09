@@ -16,7 +16,9 @@ Rails.application.routes.draw do
   namespace :admin do
     resource :dashboard, only: [:show]
     resources :food_types, only: [:create, :destroy, :index]
-    resources :agencies, except: [:show, :index]
+    resources :agencies do
+      resources :users, shallow: true
+    end
   end
 
   resource :search, only: [:show]

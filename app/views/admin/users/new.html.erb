@@ -1,0 +1,23 @@
+<%= form_for [:admin, :agency, User.new] do |form| %>
+
+  <%= form.hidden_field :agency_id, value: params[:agency_id] %>
+
+  <div>
+    <%= form.label :username %>
+    <%= form.text_field :username %>
+  </div>
+
+  <div>
+    <%= form.label :email %>
+    <%= form.email_field :email %>
+  </div>
+
+  <div>
+    <%= form.label :password %>
+    <%= form.password_field :password %>
+  </div>
+
+  <div>
+    <%= form.submit "Sign up" %>
+  </div>
+<% end %>

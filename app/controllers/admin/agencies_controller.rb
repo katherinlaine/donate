@@ -28,6 +28,11 @@ class Admin::AgenciesController < AdminController
 
   def show
     @agency = Agency.find(params[:id])
+    @admins = User.find_agency_admins(@agency)
+  end
+
+  def index
+    @agencies = Agency.all
   end
 
   private
