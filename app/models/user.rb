@@ -13,4 +13,8 @@ class User < ActiveRecord::Base
   def make_agency_admin
     self.role = "agency_admin"
   end
+
+  def has_rights_to_edit(agency)
+    self.agency_id == agency.id && self.agency_admin?
+  end
 end

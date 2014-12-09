@@ -1,0 +1,5 @@
+<h1><%= @agency.name %>'s Dashboard</h1>
+
+<%= render "agency_details", agency: @agency %>
+
+<%= link_to "Edit Details", edit_agency_admin_agency_path(@agency) %>

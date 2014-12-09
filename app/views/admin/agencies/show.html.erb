@@ -1,25 +1,8 @@
 <h1><%= @agency.name %></h1>
 
-<div>
-  <p>Contact: <%= @agency.contact %>
-  <p>Phone: <%= @agency.phone %>
-  <p>Address: <%= @agency.address %>
-  <p>City: <%= @agency.city %>
-  <p>State: NY
-  <p>Zip: <%= @agency.zipcode %>
-  <p>Accepted Foods:</p>
-  <ol>
-    <% @agency.food_types.each do |food_type| %>
-      <li><%= food_type.name %></li>
-    <% end %>
-  </ol>
-
-  <p>Notes: <%= @agency.notes %></p>
-</div>
+<%= render "agency_details", agency: @agency %>
 
 <%= link_to "Edit Details", edit_admin_agency_path(@agency) %>
-
-<%= link_to "All Agencies", agencies_path %>
 
 <h5>Admins</h5>
 <ol>
@@ -28,4 +11,4 @@
   <% end %>
 </ol>
 
-<%= link_to "Add an Admin for this Agency", new_admin_agency_user_path(agency_id: @agency) %>
+<%= link_to "Add an Admin", new_admin_agency_user_path(@agency) %>

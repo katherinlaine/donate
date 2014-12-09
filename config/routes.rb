@@ -21,6 +21,10 @@ Rails.application.routes.draw do
     end
   end
 
+  namespace :agency_admin do
+    resources :agencies, only: [:show, :edit, :update]
+  end
+
   resource :search, only: [:show]
   resource :filter, only: [:show]
   resources :agencies, only: [:index, :show]

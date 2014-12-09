@@ -1,5 +1,5 @@
-<%= form_for [:admin, @agency] do |f| %>
-  <%= render partial: "application/error_messages", locals: { object: @agency } %>
+<%= form_for [role, @agency] do |f| %>
+  <%= render "application/error_messages", object: @agency %>
 
   <%= f.label :name %>
   <%= f.text_field :name %>

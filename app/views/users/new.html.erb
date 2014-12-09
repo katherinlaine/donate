@@ -1,6 +1,6 @@
 <%= form_for @user do |form| %>
 
-  <%= render partial: "application/error_messages", locals: { object: @user }%>
+  <%= render "error_messages", object: @user %>
 
   <div>
     <%= form.label :username %>

@@ -1,6 +1,5 @@
-<%= form_for [:admin, :agency, User.new] do |form| %>
-
-  <%= form.hidden_field :agency_id, value: params[:agency_id] %>
+<%= form_for [:admin, :agency, @user] do |form| %>
+  <%= render "application/error_messages", object: @user %>
 
   <div>
     <%= form.label :username %>
