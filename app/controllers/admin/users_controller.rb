@@ -1,8 +1,9 @@
 class Admin::UsersController < AdminController
   def create
     @user = sign_up(user_params)
+    @user.make_agency_admin
     if @user.save
-      redirect_to admin_agency_path(params[:agency_id])
+      redirect_to admin_agency_path(user_params[:agency_id])
     else
       render :new
     end

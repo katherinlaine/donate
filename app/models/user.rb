@@ -9,4 +9,8 @@ class User < ActiveRecord::Base
   def self.find_agency_admins(agency)
     where(agency_id: agency.id)
   end
+
+  def make_agency_admin
+    self.role = "agency_admin"
+  end
 end
