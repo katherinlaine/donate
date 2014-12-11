@@ -1,0 +1,14 @@
+<h1><%= @agency.name %></h1>
+
+<%= render "agency_details", agency: @agency %>
+
+<%= link_to "Edit Details", edit_admin_agency_path(@agency) %>
+
+<h5>Admins</h5>
+<ol>
+  <% @admins.each do |admin| %>
+    <li><%= admin.username %></li>
+  <% end %>
+</ol>
+
+<%= link_to "Add an Admin", new_admin_agency_user_path(@agency) %>

@@ -1,11 +1,11 @@
-<%= form_for @user do |form| %>
-
-  <%= render "error_messages", object: @user %>
+<%= form_for [:admin, :agency, @user] do |form| %>
+  <%= render "application/error_messages", object: @user %>
 
   <div>
     <%= form.label :username %>
     <%= form.text_field :username %>
   </div>
+
   <div>
     <%= form.label :email %>
     <%= form.email_field :email %>
@@ -15,6 +15,7 @@
     <%= form.label :password %>
     <%= form.password_field :password %>
   </div>
+
   <div>
     <%= form.submit "Sign up" %>
   </div>
