@@ -1,6 +1,9 @@
 class Agency < ActiveRecord::Base
   SEARCH = "name ILIKE :query OR zipcode ILIKE :query"
 
+  geocoded_by :full_address
+  after_validation :geocode
+
   has_many :accepted_foods
   has_many :food_types, through: :accepted_foods
 
@@ -19,6 +22,6 @@ class Agency < ActiveRecord::Base
   end
 
   def full_address
-    "#{address}, #{city}, NY, #{zipcode}"
+    "#{address}, #{city}, NY #{zipcode}"
   end
 end
