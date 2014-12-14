@@ -1,3 +1,23 @@
 <h1> Agency Directory </h1>
 
 <%= render @agencies.alphabetize %>
+
+<div id='map'></div>
+<script>
+  L.mapbox.accessToken = '<%= ENV['MAPBOX_ACCESS_TOKEN'] %>';
+    var map = L.mapbox.map('map', '<%= ENV['MAPBOX_MAP_ID'] %>')
+      .setView([40.738, -73.902], 11);
+    var markers = function() {
+      <% @agencies.each do |agency| %>
+        var marker = L.marker(new L.LatLng(<%= agency.latitude %>, <%= agency.longitude %>), {
+          icon: L.mapbox.marker.icon({
+            'marker-size': 'medium',
+            'marker-color': '000000'
+          }),
+          }).bindLabel('<%= agency.name %>');
+        map.addLayer(marker);
+      <% end %>
+    };
+
+    markers();
+</script>
