@@ -1,3 +1,5 @@
-<h4> Search Results </h4>
-
 <%= render(@agencies) || "No Agency Found" %>
+
+<% unless @agencies.empty? %>
+  <div id="map" data-markers='<%= @agency_markers.html_safe %>'></div>
+<% end %>

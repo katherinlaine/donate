@@ -4,17 +4,4 @@
 
 <%= link_to "All Agencies", agencies_path %>
 
-<div id='map'></div>
-<script>
-L.mapbox.accessToken = '<%= ENV['MAPBOX_ACCESS_TOKEN'] %>';
-var map = L.mapbox.map('map', '<%= ENV['MAPBOX_MAP_ID'] %>', {
-    scrollWheelZoom: false
-    }).setView([<%= @agency.latitude %>, <%= @agency.longitude %>], 12);
-
-    L.marker([<%= @agency.latitude %>, <%= @agency.longitude %>], {
-      icon: L.mapbox.marker.icon({
-        'marker-size': 'medium',
-        'marker-color': '000000',
-        })
-      }).addTo(map);
-</script>
+<div id="map" data-markers='<%= @agency_markers.html_safe%>'></div>

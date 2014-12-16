@@ -1,11 +1,14 @@
 class FiltersController < ApplicationController
   def show
     @agencies = Agency.where(add_filters(filter_params))
+
     if food_type_params[:food_types].present?
       @agencies = @agencies.
         joins(:food_types).
         where(food_types: { id: food_type_params[:food_types] })
     end
+
+    @agency_markers = GeojsonBuilder.new(@agencies).to_geojson
 
     render "searches/show"
   end
