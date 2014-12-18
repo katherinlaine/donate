@@ -1,6 +1,11 @@
+/*
+*= require mapbox
+*/
+
 @import "bourbon";
 @import "base/base";
 @import "neat";
+@import "map";
 
 * {
   font-family: helvetica;

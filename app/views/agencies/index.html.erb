@@ -1,3 +1,5 @@
 <h1> Agency Directory </h1>
 
 <%= render @agencies.alphabetize %>
+
+<div id='map' data-markers='<%= @agency_markers.html_safe%>'></div>
