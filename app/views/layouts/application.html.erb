@@ -30,6 +30,10 @@
   <%= link_to "Agency Profile Page", agency_admin_agency_path(current_user.agency_id)%>
 <% end %>
 
+<% if flash[:notice] %>
+  <div class="notice"><%= flash[:notice] %></div>
+<% end %>
+
 <%= yield %>
 
 </body>

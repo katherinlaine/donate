@@ -7,8 +7,10 @@ class Admin::UsersController < AdminController
     @user = sign_up(user_params)
     @user.make_agency_admin
     if @user.save
+      flash[:notice] = "Admin successfully created."
       redirect_to admin_agency_path(params[:agency_id])
     else
+      flash[:notice] = "Admin creation was unsuccessful."
       render :new
     end
   end
