@@ -7,8 +7,10 @@ class AgencyAdmin::AgenciesController < ApplicationController
     find_agency
 
     if @agency.update(agency_params)
+      flash[:notice] = "Your updates were saved."
       redirect_to agency_admin_agency_path(@agency)
     else
+      flash[:notice] = "We were unable to save your changes."
       render :edit
     end
   end

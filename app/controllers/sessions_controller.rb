@@ -10,6 +10,7 @@ class SessionsController < ApplicationController
     if sign_in(user)
       redirect_to root_path
     else
+      flash[:notice] = "Please re-enter your username and password:"
       render :new
     end
   end

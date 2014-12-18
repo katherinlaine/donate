@@ -7,8 +7,10 @@ class Admin::AgenciesController < AdminController
   def create
     @agency = Agency.new(agency_params)
     if @agency.save
+      flash[:notice] = "Agency successfully created."
       redirect_to agency_path(@agency)
     else
+      flash[:notice] = "Agency creation was unsuccessful."
       render :new
     end
   end
@@ -18,8 +20,10 @@ class Admin::AgenciesController < AdminController
 
   def update
     if @agency.update(agency_params)
+      flash[:notice] = "Agency successfully updated."
       redirect_to agency_path(@agency)
     else
+      flash[:notice] = "Agency update was unsuccessful."
       render :edit
     end
   end
