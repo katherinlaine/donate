@@ -12,6 +12,8 @@ gem 'monban'
 gem 'monban-generators'
 gem 'neat'
 gem 'pg'
+gem 'pry', group: :development
+gem 'pry-doc'
 gem 'rails', '4.1.6'
 gem 'rails_12factor', group: :production
 gem 'sass-rails', '~> 4.0.3'

@@ -17,6 +17,7 @@ Rails.application.routes.draw do
     resource :dashboard, only: [:show]
     resources :food_types, only: [:create, :destroy, :index]
     resources :agencies do
+      collection { post :import, to: "agencies#create_from_csv" }
       resources :users, shallow: true
     end
   end

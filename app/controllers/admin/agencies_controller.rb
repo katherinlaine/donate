@@ -15,6 +15,11 @@ class Admin::AgenciesController < AdminController
     end
   end
 
+  def create_from_csv
+    Agency.import(params[:file])
+    redirect_to admin_agencies_path
+  end
+
   def edit
   end
 

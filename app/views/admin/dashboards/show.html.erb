@@ -3,3 +3,8 @@
 <%= link_to "Add an Agency", new_admin_agency_path %>
 <%= link_to "All Agencies", admin_agencies_path %>
 <%= link_to "Food Types", admin_food_types_path %>
+
+<%= form_tag import_admin_agencies_path, multipart: true do %>
+  <%= file_field_tag :file %>
+  <%= submit_tag "Import" %>
+<% end %>
