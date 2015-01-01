@@ -16,7 +16,8 @@ class Admin::AgenciesController < AdminController
   end
 
   def create_from_csv
-    Agency.import(params[:file])
+    ids = collect_accepted_food_types
+    Agency.import(params[:file], ids)
     redirect_to admin_agencies_path
   end
 
@@ -58,5 +59,13 @@ class Admin::AgenciesController < AdminController
 
   def find_agency
     @agency = Agency.find(params[:id])
+  end
+
+  def collect_accepted_food_types
+    ids = Array.new
+    FoodType.all.each do |type|
+      ids << type[:feeding_america_id]
+    end
+    ids.reject(&:blank?)
   end
 end
