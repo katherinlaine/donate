@@ -12,6 +12,9 @@ class Agency < ActiveRecord::Base
   validates :name, presence: true, uniqueness: true
   validates :phone, presence: true
   validates :zipcode, presence: true
+  validates_format_of :zipcode,
+                      with: /\A\d{5}(-\d{4})?\z/,
+                      message: ": Incorrect format"
 
   def self.alphabetize
     order(name: :asc)
@@ -23,5 +26,10 @@ class Agency < ActiveRecord::Base
 
   def full_address
     "#{address}, #{city}, NY #{zipcode}"
+  end
+
+  def self.import(file, ids)
+    importer = CSVImporter.new
+    importer.run_import(file, ids)
   end
 end

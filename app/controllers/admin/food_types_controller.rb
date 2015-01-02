@@ -19,6 +19,6 @@ class Admin::FoodTypesController < AdminController
   private
 
   def food_type_params
-    params.require(:food_type).permit(:name)
+    params.require(:food_type).permit(:name, :feeding_america_id)
   end
 end

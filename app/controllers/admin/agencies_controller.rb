@@ -1,5 +1,6 @@
 class Admin::AgenciesController < AdminController
   before_action :find_agency, only: [:edit, :update, :show]
+
   def new
     @agency = Agency.new
   end
@@ -13,6 +14,12 @@ class Admin::AgenciesController < AdminController
       flash[:notice] = "Agency creation was unsuccessful."
       render :new
     end
+  end
+
+  def create_from_csv
+    ids = collect_accepted_food_types
+    Agency.import(params[:file], ids)
+    redirect_to admin_agencies_path
   end
 
   def edit
@@ -53,5 +60,13 @@ class Admin::AgenciesController < AdminController
 
   def find_agency
     @agency = Agency.find(params[:id])
+  end
+
+  def collect_accepted_food_types
+    ids = []
+    FoodType.all.each do |type|
+      ids << type[:feeding_america_id]
+    end
+    ids.reject(&:blank?)
   end
 end
