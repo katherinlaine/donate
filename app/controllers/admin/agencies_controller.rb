@@ -1,5 +1,6 @@
 class Admin::AgenciesController < AdminController
   before_action :find_agency, only: [:edit, :update, :show]
+
   def new
     @agency = Agency.new
   end
@@ -62,7 +63,7 @@ class Admin::AgenciesController < AdminController
   end
 
   def collect_accepted_food_types
-    ids = Array.new
+    ids = []
     FoodType.all.each do |type|
       ids << type[:feeding_america_id]
     end
