@@ -4,8 +4,14 @@ class FiltersController < ApplicationController
 
     if food_type_params[:food_types].present?
       @agencies = @agencies.
-        joins(:food_types).
+        joins(:food_types)
         where(food_types: { id: food_type_params[:food_types] })
+    end
+
+    if !filter_params[:current_location].empty?
+      location = request.location
+      binding.pry
+      @agencies = @agencies.near(location.latitude, location.longitude)
     end
 
     @agency_markers = GeojsonBuilder.new(@agencies).to_geojson
@@ -20,7 +26,7 @@ class FiltersController < ApplicationController
   end
 
   def filter_params
-    params.permit(:city)
+    params.permit(:city, :current_location)
   end
 
   def add_filters(search_params)

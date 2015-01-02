@@ -34,7 +34,10 @@
           "name"
         ), prompt: "Type of Food" %>
 
-      <%= select_tag :city, options_for_select(nyc_boroughs), prompt: "Borough" %>
+        <%= select_tag :city, options_for_select(nyc_boroughs), prompt: "Borough" %>
+
+        <p> Use current location to determine closest location? </p>
+        <%= select_tag :current_location, "<option>Yes</option>", include_blank: true %>
 
         <%= submit_tag "Search" %>
       <% end %>
@@ -43,3 +46,4 @@
       <h5><%= link_to "View All Agencies", agencies_path %></h5>
   </div>
 </div>
+

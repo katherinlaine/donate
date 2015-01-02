@@ -2,7 +2,7 @@ class Agency < ActiveRecord::Base
   SEARCH = "name ILIKE :query OR zipcode ILIKE :query"
 
   geocoded_by :full_address
-  after_validation :geocode
+  after_validation :geocode, if: :full_address_changed?
 
   has_many :accepted_foods
   has_many :food_types, through: :accepted_foods
