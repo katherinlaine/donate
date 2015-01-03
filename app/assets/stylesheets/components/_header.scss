@@ -1,0 +1,27 @@
+header {
+  @include outer-container;
+  background-color: $light-green;
+  padding: .5em;
+
+  .title {
+    text-align: center;
+    color: $ch-green;
+    padding: 1em;
+  }
+
+  .navigation {
+    float: right;
+    display: inline;
+  }
+
+  .welcome {
+    text-align: center;
+    color: $ch-green;
+    display: inline;
+  }
+
+  .admin {
+    float: left;
+    display: inline;
+  }
+}

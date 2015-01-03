@@ -7,4 +7,13 @@ class ApplicationController < ActionController::Base
   def current_user
     super || Guest.new
   end
+
+  def location
+    if Rails.env.development?
+      @location ||= Geocoder.search("50.70.167.161").first
+    else
+      @location ||= request.location
+    end
+    @location
+  end
 end

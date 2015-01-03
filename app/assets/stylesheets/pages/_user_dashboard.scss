@@ -1,0 +1,33 @@
+.info {
+  @include span-columns(6);
+  float: left;
+  padding: 1em;
+  h4 {
+    text-align: center;
+  }
+
+  .about {
+    text-align: center;
+    color: $ch-green;
+    padding: 1em;
+  }
+}
+
+.search {
+  @include span-columns(6);
+  float: left;
+  text-align: center;
+  padding: 1em;
+
+  .quick_search {
+    border: 1px solid green;
+    padding: .5em;
+    margin: 1em .5em;
+  }
+
+  .filter {
+    border: 1px solid green;
+    padding: .5em;
+    margin: .5em;
+  }
+}

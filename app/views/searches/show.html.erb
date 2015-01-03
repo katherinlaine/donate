@@ -1,4 +1,7 @@
-<%= render(@agencies) || "No Agency Found" %>
+<div class="details">
+  <h3> Results </h3>
+  <%= render(@agencies) || "No Agency Found" %>
+</div>
 
 <% unless @agencies.empty? %>
   <div id="map" data-markers='<%= @agency_markers.html_safe %>'></div>
