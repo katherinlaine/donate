@@ -1,0 +1,28 @@
+.details {
+  border: 2.5px solid #48A200;
+  margin: 1em;
+  padding: 1.5em;
+  display: block;
+  width: 45%;
+
+  h3 {
+    text-align: center;
+  }
+
+  li {
+    padding: .5em;
+  }
+}
+
+.agency_details {
+  color: #48A200;
+  padding: .75em;
+  p {
+    color: black;
+    font-weight: bold;
+  }
+
+  li {
+    color: black
+  }
+}

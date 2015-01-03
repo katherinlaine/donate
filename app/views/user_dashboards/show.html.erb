@@ -1,26 +1,45 @@
-<h1>Welcome to the donating app </h1>
+<div class="container">
+  <div class="info">
 
-<%= link_to "All Agencies", agencies_path %>
+    <h4>What is Give a Little? </h4>
+    <p class="about">
+    This is what it's about!
+    </p>
 
-<h3> Have a food donation? </h3>
+    <h4>What kinds of food can you accept?</h4>
+    <p class="about">
+    This is what we can accept!
+    </p>
 
-<h5> Quick Search: </h5>
+  </div>
 
-<%= form_tag search_path, method: :get do %>
-  <%= text_field_tag :query, nil, placeholder: "Enter a name or zipcode" %>
-  <%= submit_tag "Search" %>
-<% end %>
+  <div class="search">
+    <h4> Have a food donation? </h4>
+    <div class="quick_search">
+      <h5>Quick Search</h5>
 
-<h5>Advanced Search</h5>
+      <%= form_tag search_path, method: :get do %>
+        <%= text_field_tag :query, nil, placeholder: "Enter an agency name or zipcode" %>
+      <%= submit_tag "Search" %>
+    <% end %>
+    </div>
 
-<%= form_tag filter_path, method: :get do %>
-  <%= select_tag :food_types, options_from_collection_for_select(
-    FoodType.all,
-    "id",
-    "name"
-  ), prompt: "Type of Food" %>
+    <div class="filter">
+      <h5>Advanced Search</h5>
 
-  <%= select_tag :city, options_for_select(nyc_boroughs), prompt: "Borough" %>
+      <%= form_tag filter_path, method: :get do %>
+        <%= select_tag :food_types, options_from_collection_for_select(
+          FoodType.all,
+          "id",
+          "name"
+        ), prompt: "Type of Food" %>
 
-  <%= submit_tag "Search" %>
-<% end %>
+      <%= select_tag :city, options_for_select(nyc_boroughs), prompt: "Borough" %>
+
+        <%= submit_tag "Search" %>
+      <% end %>
+      </div>
+
+      <h5><%= link_to "View All Agencies", agencies_path %></h5>
+  </div>
+</div>
