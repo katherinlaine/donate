@@ -1,7 +1,8 @@
-<h1><%= @agency.name %></h1>
+<div class="details">
+  <h3><%= @agency.name %></h3>
+  <%= render "agency_details", agency: @agency %>
+</div>
 
-<%= render "agency_details", agency: @agency %>
-
-<%= link_to "All Agencies", agencies_path %>
+<h5><%= link_to "All Agencies", agencies_path %></h5>
 
 <div id="map" data-markers='<%= @agency_markers.html_safe%>'></div>

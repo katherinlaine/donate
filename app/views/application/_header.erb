@@ -1,0 +1,29 @@
+<header>
+  <div class= "title">
+    <h1><%= link_to "Give a Little", root_path %></h1>
+  </div>
+  <div class="navigation">
+    <% if signed_in? %>
+      <%= link_to "Sign Out", session_path, method: :delete %>
+    <% else %>
+      <%= link_to "Sign In", new_session_path %>
+      <%= link_to "Sign Up", new_user_path %>
+    <% end %>
+  </div>
+
+  <div class="admin">
+    <% if current_user.super_admin? %>
+      <%= link_to "Admin Dashboard", admin_dashboard_path %>
+    <% end %>
+
+    <% if current_user.agency_admin? %>
+      <%= link_to "Agency Profile Page", agency_admin_agency_path(current_user.agency_id)%>
+    <% end %>
+  </div>
+
+  <div class="flash">
+    <% if flash[:notice] %>
+     <div class="notice"><%= flash[:notice] %></div>
+    <% end %>
+  </div>
+</header>
