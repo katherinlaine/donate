@@ -9,6 +9,10 @@ $(function() {
     var markers = L.mapbox.featureLayer(agencyData);
     markers.addTo(map)
 
+    var locationData = $('#map').data('location');
+    var you = L.mapbox.featureLayer(locationData);
+    you.addTo(map)
+
     setTimeout(function () {
       map.fitBounds(markers.getBounds());
     }, 0);

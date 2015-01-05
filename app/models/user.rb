@@ -1,6 +1,11 @@
 class User < ActiveRecord::Base
   enum role: [:donor, :agency_admin, :super_admin]
 
+  geocoded_by :ip_address,
+              latitude: :lat,
+              longitude: :lon
+  after_validation :geocode
+
   validates :email, presence: true, uniqueness: true
   validates :password_digest, presence: true
 

@@ -2,7 +2,7 @@ class Agency < ActiveRecord::Base
   SEARCH = "name ILIKE :query OR zipcode ILIKE :query"
 
   geocoded_by :full_address
-  after_validation :geocode
+  after_validation :geocode, if: :full_address_changed?
 
   has_many :accepted_foods
   has_many :food_types, through: :accepted_foods
@@ -15,6 +15,10 @@ class Agency < ActiveRecord::Base
   validates_format_of :zipcode,
                       with: /\A\d{5}(-\d{4})?\z/,
                       message: ": Incorrect format"
+
+  def full_address_changed?
+    address_changed? || city_changed? || zipcode.changed?
+  end
 
   def self.alphabetize
     order(name: :asc)
