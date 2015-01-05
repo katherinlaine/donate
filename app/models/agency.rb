@@ -16,6 +16,8 @@ class Agency < ActiveRecord::Base
                       with: /\A\d{5}(-\d{4})?\z/,
                       message: ": Incorrect format"
 
+  paginates_per 7
+
   def full_address_changed?
     address_changed? || city_changed? || zipcode.changed?
   end

@@ -6,9 +6,8 @@ class FiltersController < ApplicationController
     check_for_location_query
     add_markers_and_narrow_search_by_location
 
+    @agencies = @agencies.page params[:page]
     @agency_markers = GeojsonBuilder.new(@agencies).to_geojson
-
-    render "searches/show"
   end
 
   private

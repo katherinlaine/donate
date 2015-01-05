@@ -1,0 +1,14 @@
+<div class="container">
+  <h4 class="edit-food"> Edit Food Type:</h4>
+
+  <%= form_for [:admin, @food_type] do |f| %>
+    <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <%= f.label :feeding_america_id, "Feeding America Food Type ID" %>
+  <%= f.text_field :feeding_america_id %>
+
+  <p> *Feeding America ID is required for importing csv data with accepted food types* </p>
+  <%= f.submit %>
+<% end %>
+</div>

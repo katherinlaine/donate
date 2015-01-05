@@ -3,7 +3,7 @@
 
     <h4>What is Give a Little? </h4>
     <p class="about">
-    Give a Little is an app that aims to connect your surplus food (regardless of how much or how little you have to give) with hungry people in your community.  In order to make it as easy as possible for you to donate, Give a Little allows you to search for places within your own neighborhood that can benefit from whatever you have to give.
+    Give a Little is an app that aims to connect your surplus food (regardless of how much or how little you have to give) with hungry people in your community.  In order to make it as easy as possible for you to donate, Give a Little allows you to search for places within your own neighborhood that can benefit from whatever you have to offer.
     </p>
     <p class="about">
     Start by selecting the type of food that you have in surplus. Then, use your current location or another address within the five boroughs and instantly see a list of agencies that meet your criteria.
@@ -11,13 +11,16 @@
 
     <h4>What kinds of food can you accept?</h4>
     <p class="about">
-    The top priority of every agency listed in Give a Little is the safety and health of their clients. Therefore, it's crucial that everyone keep food safety at the forefront of our minds.
+    Our first priority is the health and wellbeing of the people we serve.  Please keep food safety in mind when donating. The Good Samaritan Law provides protection from all liability when donating food, but help us keep our community safe by reviewing the food safety guidelines in the link below.
     </p>
     <p class="about">
-    If you have any questions about what food is safe, please visit:
-    <a href="http://www.cityharvest.org/images/uploads/site/FY15_New_Donor_Kit.pdf">City Harvest's Food Safety Guidelines</a>
+      <a href="http://www.cityharvest.org/images/uploads/site/FY15_New_Donor_Kit.pdf">City Harvest's Food Safety Guidelines</a>
     </p>
 
+    <h4>Want to Give a Lot?</h4>
+    <p class="about">
+    Give a Little began as a tool to supplement the work of City Harvest. City Harvest operates a fleet of trucks that can pick up your surplus food, if it weighs 50 pounds or more.  If you have such a donation and are unable to bring it directly to an agency nearby, please contact City Harvest to schedule a pickup (646-412-0600).
+    </p>
   </div>
 
   <div class="search">
@@ -32,8 +35,8 @@
     </div>
 
     <div class="filter">
-      <h5>Search:</h5>
-      <p>1. Enter what kind of food you have to donate: </p>
+      <h5>Find a Location:</h5>
+      <p class="strong">1. Enter what kind of food you have to donate: </p>
 
       <%= form_tag filter_path, method: :get do %>
         <%= select_tag :food_types, options_from_collection_for_select(
@@ -42,14 +45,14 @@
           "name"
         ), prompt: "Type of Food" %>
 
-      <p>2. And choose your search method:</p>
+      <p class="strong">2. And choose your search method:</p>
 
         <div>
           <p> Use current location to find locations nearby?
           <%= check_box_tag :current_location, "Yes" %></p>
         </div>
 
-        <p>OR</p>
+        <p class="strong">OR</p>
 
         <div>
           <p> Find locations near an address: </p>
@@ -60,7 +63,6 @@
       <% end %>
     </div>
 
-      <h5><%= link_to "View All Agencies", agencies_path %></h5>
+      <h5 class="all"><%= link_to "View All Agencies", agencies_path %></h5>
   </div>
 </div>
-
