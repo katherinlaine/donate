@@ -1,10 +1,15 @@
-<h3> Admin Dashboard </h3>
+<div class="container">
+  <div class="title">
+    <h3> Admin Dashboard </h3>
+    <h6> Welcome <%= current_user.username %>!</h6>
+  </div>
 
-<%= link_to "Add an Agency", new_admin_agency_path %>
-<%= link_to "All Agencies", admin_agencies_path %>
-<%= link_to "Food Types", admin_food_types_path %>
+  <%= link_to "All Agencies", admin_agencies_path %>
+  <%= link_to "View and Edit Food Types", admin_food_types_path %>
+  <%= link_to "Add an Agency", new_admin_agency_path %>
 
-<%= form_tag import_admin_agencies_path, multipart: true do %>
-  <%= file_field_tag :file %>
+  <%= form_tag import_admin_agencies_path, multipart: true do %>
+    <%= file_field_tag :file %>
   <%= submit_tag "Import" %>
 <% end %>
+</div>
