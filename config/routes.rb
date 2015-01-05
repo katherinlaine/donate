@@ -10,12 +10,12 @@ Rails.application.routes.draw do
   end
 
   constraints Monban::Constraints::SignedOut.new do
-    root "sessions#new"
+    root "user_dashboards#show"
   end
 
   namespace :admin do
     resource :dashboard, only: [:show]
-    resources :food_types, only: [:create, :destroy, :index]
+    resources :food_types, only: [:create, :edit, :update, :destroy, :index]
     resources :agencies do
       collection { post :import, to: "agencies#create_from_csv" }
       resources :users, shallow: true

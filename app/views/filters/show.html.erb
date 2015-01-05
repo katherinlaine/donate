@@ -4,6 +4,10 @@
   <%= paginate @agencies %>
 
   <% unless @agencies.empty? %>
+    <% if @location_marker.nil? %>
       <div id="map" data-markers='<%= @agency_markers.html_safe %>'></div>
+    <% else %>
+      <div id="map" data-markers='<%= @agency_markers.html_safe %>' data-location='<%= @location_marker.html_safe %>'></div>
+    <% end %>
   <% end %>
 </div>

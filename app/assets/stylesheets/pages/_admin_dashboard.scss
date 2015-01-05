@@ -1,3 +1,28 @@
 .title {
   text-align: center;
 }
+
+.admin-left {
+  @include span-columns(6);
+  text-align: center;
+
+  h6 {
+    padding: .5em;
+  }
+}
+
+.admin-right {
+  @include span-columns(6);
+  text-align: center;
+
+  .uploader {
+    text-align: center;
+    border: 2px $ch-green solid;
+    margin: 1em;
+    padding: 1em;
+  }
+
+  #file {
+    margin: 0 auto;
+  }
+}

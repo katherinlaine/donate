@@ -5,6 +5,17 @@ class Admin::FoodTypesController < AdminController
     redirect_to admin_food_types_path
   end
 
+  def edit
+    @food_type = FoodType.find(params[:id])
+  end
+
+  def update
+    @food_type = FoodType.find(params[:id])
+    @food_type.update(food_type_params)
+
+    redirect_to admin_food_types_path
+  end
+
   def destroy
     @food_type = FoodType.find(params[:id])
     @food_type.destroy
@@ -14,6 +25,7 @@ class Admin::FoodTypesController < AdminController
 
   def index
     @food_type = FoodType.new
+    @food_types = FoodType.all
   end
 
   private

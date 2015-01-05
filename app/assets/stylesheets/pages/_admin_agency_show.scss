@@ -1,0 +1,21 @@
+.admin_agency_title {
+  text-align: center;
+  padding: .5em;
+
+  h5 {
+    text-align: center}
+}
+
+.left {
+  @include span-columns(6);
+  border: 1px $ch-green solid;
+  .center {
+    text-align: center;
+  }
+}
+
+.right {
+  @include span-columns(6);
+  border: 1px $ch-green solid;
+  text-align: center;
+}

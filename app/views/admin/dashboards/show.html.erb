@@ -1,15 +1,22 @@
 <div class="container">
   <div class="title">
     <h3> Admin Dashboard </h3>
-    <h6> Welcome <%= current_user.username %>!</h6>
+    <h4> Welcome <%= current_user.username %>!</h4>
   </div>
 
-  <%= link_to "All Agencies", admin_agencies_path %>
-  <%= link_to "View and Edit Food Types", admin_food_types_path %>
-  <%= link_to "Add an Agency", new_admin_agency_path %>
+  <div class="admin-left">
+    <h6><%= link_to "View All Agencies", admin_agencies_path %></h6>
+    <h6><%= link_to "View / Edit Food Types", admin_food_types_path %></h6>
+    <h6><%= link_to "Add an Agency", new_admin_agency_path %></h6>
+  </div>
 
-  <%= form_tag import_admin_agencies_path, multipart: true do %>
-    <%= file_field_tag :file %>
-  <%= submit_tag "Import" %>
-<% end %>
+  <div class="admin-right">
+    <div class="uploader">
+      <h6>Upload Agencies from CSV File</h6>
+      <%= form_tag import_admin_agencies_path, multipart: true do %>
+        <%= file_field_tag :file %>
+        <%= submit_tag "Import" %>
+      <% end %>
+    </div>
+  </div>
 </div>

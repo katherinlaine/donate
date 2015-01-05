@@ -1,15 +1,14 @@
 .info {
   @include span-columns(6);
   float: left;
-  padding: 1em;
   h4 {
     text-align: center;
+    padding: 1em;
   }
 
   .about {
     text-align: center;
     color: $ch-green;
-    padding: 1em;
   }
 }
 
@@ -18,6 +17,16 @@
   float: left;
   text-align: center;
   padding: 1em;
+
+  h5 {
+    padding: .5em;
+    text-align: center;
+  }
+
+  .strong {
+    font-weight: bold;
+    padding: .5em 0;
+  }
 
   .quick_search {
     border: 1px solid green;
@@ -29,5 +38,13 @@
     border: 1px solid green;
     padding: .5em;
     margin: .5em;
+  }
+
+  .all {
+    padding: 1em;
+  }
+
+  #food_types {
+    margin: 0 auto;
   }
 }

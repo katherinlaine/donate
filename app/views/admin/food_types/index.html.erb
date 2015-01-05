@@ -1,7 +1,6 @@
 <h3> Food Types </h3>
-<%= render FoodType.all.alphabetize %>
-
-<h6> Add a new type of food: </h6>
+<div class="food_types">
+<h6> Add new food type: </h6>
 
 <%= form_for [:admin, @food_type] do |f| %>
   <%= f.label :name %>
@@ -14,3 +13,24 @@
 
   <%= f.submit %>
 <% end %>
+</div>
+<div class="table">
+  <table>
+    <tr>
+      <th>Type</th>
+      <th>APP ID</th>
+      <th>Feeding America ID</th>
+      <th>Edit</th>
+      <th>Delete</th>
+    </tr>
+    <% @food_types.each do |ft| %>
+      <tr>
+      <td><%= ft.name %></td>
+      <td><%= ft.id %></td>
+      <td><%= ft.feeding_america_id %></td>
+      <td><%= button_to "Edit", edit_admin_food_type_path(ft), method: :get %></td>
+      <td><%= button_to "Delete", admin_food_type_path(ft), method: :delete %></td>
+    </tr>
+    <% end %>
+  </table>
+</div>
