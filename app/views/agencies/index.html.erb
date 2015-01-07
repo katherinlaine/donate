@@ -1,4 +1,8 @@
-<div class="index">
+<div class="details">
   <h3> Agency Directory </h3>
   <%= render @agencies.alphabetize %>
 </div>
+
+<%= paginate @agencies %>
+
+<div id="map" data-markers='<%= @agency_markers.html_safe %>'></div>

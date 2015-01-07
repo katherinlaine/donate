@@ -16,7 +16,7 @@ class Agency < ActiveRecord::Base
                       with: /\A\d{5}(-\d{4})?\z/,
                       message: ": Incorrect format"
 
-  paginates_per 7
+  paginates_per 19
 
   def self.alphabetize
     order(name: :asc)
