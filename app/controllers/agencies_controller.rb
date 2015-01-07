@@ -5,7 +5,7 @@ class AgenciesController < ApplicationController
   end
 
   def index
-    @agencies = Agency.all
+    @agencies = Agency.all.page params[:page]
     @agency_markers = GeojsonBuilder.new(@agencies).to_geojson
   end
 end

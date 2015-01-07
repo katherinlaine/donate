@@ -1,6 +1,8 @@
 .info {
   @include span-columns(6);
   float: left;
+  padding: .5em;
+
   h4 {
     text-align: center;
     padding: 1em;
