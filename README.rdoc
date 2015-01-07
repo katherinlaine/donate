@@ -1,28 +1,20 @@
-== README
+== Give a little
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Application
 
-Things you may want to cover:
+Give a Little is an application that makes it easy to donate your surplus food.
+The need for food assistance in New York is immense -  1.4 million people face
+hunger each year, in the five boroughs alone. City Harvest aims to rescue 50
+million pounds of food each year to satisfy this need, but because of the scale
+of their operations, cannot pick up food donations that are less than 50 pounds.
+This app, then, connects people that have surplus food in any amount, with the
+closest drop-off location.
 
-* Ruby version
+The app allows donors to search for the nearest location that accepts the kind
+of food they have to donate (prepared, canned, etc.), based on an entered
+address or their ip address.
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+The app allows an adminstrative organization (presumably City Harvest) to
+upload a csv file containing agency information (address, contact, etc.) along
+with what kinds of food they can accept, based on Feeding America food type
+ids.
